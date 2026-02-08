@@ -1,0 +1,37 @@
+# =====================
+# .NET / Visual Studio
+# =====================
+bin/
+obj/
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# =====================
+# Build / Logs
+# =====================
+*.log
+*.cache
+
+# =====================
+# NuGet
+# =====================
+packages/
+*.nupkg
+*.snupkg
+.nuget/
+
+# =====================
+# IDEs
+# =====================
+.vscode/
+.idea/
+*.swp
+
+# =====================
+# OS
+# =====================
+.DS_Store
+Thumbs.db
