@@ -1,21 +1,21 @@
 using GestaoClientes.Aplicacao.Abstracoes;
+using GestaoClientes.Aplicacao.Clientes.Criar;
+using GestaoClientes.Aplicacao.Clientes.ObterPorId;
 using GestaoClientes.Infraestrutura.Repositorios;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Controllers
 builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
 
+// DI - Handlers (Aplicação)
+builder.Services.AddScoped<CriaClienteCommandHandler>();
+builder.Services.AddScoped<ObtemClientePorIdQueryHandler>();
+
+// DI - Repositório (Infraestrutura)
 builder.Services.AddSingleton<IClienteRepository, ClienteRepositoryEmMemoria>();
 
 var app = builder.Build();
-
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
 
 app.UseHttpsRedirection();
 
