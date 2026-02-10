@@ -1,0 +1,34 @@
+@baseUrl = http://localhost:5058
+
+### Criar cliente
+POST {{baseUrl}}/clientes
+Content-Type: application/json
+
+{
+  "nomeFantasia": "Empresa Teste LTDA",
+  "cnpj": "12.345.678/0001-95"
+}
+
+### Obter cliente criado (cole o id retornado)
+GET {{baseUrl}}/clientes/94378ad9-7f63-4156-9c0e-4495233fe1da
+
+### Criar cliente com CNPJ duplicado
+POST {{baseUrl}}/clientes
+Content-Type: application/json
+
+{
+  "nomeFantasia": "Empresa Duplicada",
+  "cnpj": "12.345.678/0001-95"
+}
+
+### Criar cliente com nome inválido
+POST {{baseUrl}}/clientes
+Content-Type: application/json
+
+{
+  "nomeFantasia": "",
+  "cnpj": "45.987.321/0001-00"
+}
+
+### Obter cliente inexistente
+GET {{baseUrl}}/clientes/00000000-0000-0000-0000-000000000000
